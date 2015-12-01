@@ -45,7 +45,7 @@ post '/gateway' do
 		  api_url = "http://pokeapi.co/api/v1/#{uri_directory}/#{abilitynumber}"
       response = HTTParty.get(api_url)
       response = JSON.parse response.body
-      respond_message "Ability #{response['id']} is #{response['name']}. #{response['name']} is a so cool."
+      respond_message "Ability #{response['id']} is #{response['name']}. #{response['name']} is so cool."
   end
 end
 
