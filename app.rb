@@ -23,7 +23,7 @@ post '/gateway' do
       response = HTTParty.get(api_url)
       response = JSON.parse response.body
       # respond_message "Meet #{response[name]}. #{response[name]} is a #{response[species]}, with a speed of #{response[speed]} to start."
-      respond_message "Stock Response"
+      respond_message "Stock Response #{response}"
   end
 end
 
