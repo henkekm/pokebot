@@ -3,9 +3,9 @@ require 'httparty'
 require 'json'
 
 post '/gateway' do
-	# puts message
   message = params[:text].gsub(params[:trigger_word], '').strip
-  # puts message
+  puts message
+  
   action = message.split('_').map {|c| c.strip.downcase }
 
   repo, pokenumber = 'pokemon', '1'
