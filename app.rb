@@ -5,7 +5,7 @@ require 'json'
 post '/gateway' do
   message = params[:text].gsub(params[:trigger_word], '').strip
   puts message
-  
+
   action = message.split('_').map {|c| c.strip.downcase }
 
   repo, pokenumber = 'pokemon', '1'
