@@ -20,12 +20,14 @@ post '/gateway' do
 		# return if params[:token] != ENV['7FP2gNGr1zMck7T9eUAfGTlI']
     when 'pokemon'
     	# pokenumber = {pokemon lookup to convert arg from string to a number}
+      ## need to handle case where input poke is unknown
     	uri_directory = 'pokemon'
 		  api_url = "http://pokeapi.co/api/v1/#{uri_directory}/#{pokenumber}"
       response = HTTParty.get(api_url)
       response = JSON.parse response.body
       respond_message "Meet #{response['name']}. #{response['name']} is a #{response['species']}, with a speed of #{response['speed']} to start."
     when 'number'
+      ## need to handle case where input number is unknown
     	pokenumber = arg
     	uri_directory = 'pokemon'
 		  api_url = "http://pokeapi.co/api/v1/#{uri_directory}/#{pokenumber}"
@@ -33,6 +35,7 @@ post '/gateway' do
       response = JSON.parse response.body
       respond_message "Meet #{response['name']}. #{response['name']} is a #{response['species']}, with a speed of #{response['speed']} to start."
     when 'move'
+      ## need to handle case where input move is unknown
     	movenumber = arg
     	uri_directory = 'move'
 		  api_url = "http://pokeapi.co/api/v1/#{uri_directory}/#{movenumber}"
@@ -40,6 +43,7 @@ post '/gateway' do
       response = JSON.parse response.body
       respond_message "Move #{response['id']} is called #{response['name']}, has an accuracy of #{response['accuracy']}, and has a power of #{response['power']}"
     when 'ability'
+      ## need to handle case where input ability is unknown
     	abilitynumber = arg
     	uri_directory = 'ability'
 		  api_url = "http://pokeapi.co/api/v1/#{uri_directory}/#{abilitynumber}"
